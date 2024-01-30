@@ -1,7 +1,21 @@
 import './App.css';
 import gpt3 from './gpt3.png';
+import {useState} from 'react';
 
 function App() {
+  //add input for state and chat log
+  const [input, setInput] = useState('');
+  const [chatLog, setChatLog] = useState([{
+    user:'gpt',
+    message:'How can I help you today?'
+  }]);
+
+  async function handleSubmit(e){
+    e.preventDefault();
+    setChatLog([...chatLog,   {user:'me',message:'${input}'}]);
+    setInput('');
+
+  }
   return (
     <div className="App">
       <aside className='sidemenu'>
@@ -14,26 +28,24 @@ function App() {
       </aside>
       <section className='chatbox'>
         <div className='chat-message'>
-          <div className='chatbox-log'>
-            <div className='avatar'>
-                  
-            </div>
-            <div className='message'>
-              Hello world
-          </div>
-          </div>
-        </div><div className='gpt-message'>
+          {Chatlog.map((message, index) => (
+            <Chatlog message={message} />
+            ))  }
+        </div>
+        <div className='gpt-message'>
           <div className='chatbox-log'>
             <div className='gptavatar'>
                   <image src={gpt3} alt='gpt3' />
             </div>
-            <div className='message'>
+            <div className='gptmessage'>
               I am a bot
           </div>
           </div>
         </div>
       <div className='chat-input-holder'>
-        <textarea className='chat-input-area' rows="1" placeholder='Type your message here...'></textarea>
+        <form onSubmit={handleSubmit}>
+        <input className='chat-input-area' rows="1" value={input} onChange={(e)=> setInput(e.target.value)} placeholder='Type your message here...'></input>
+        </form>
       </div>
       </section>
       
@@ -41,4 +53,16 @@ function App() {
   );
 }
 
+const Chatlog = ({message}) => {
+  return (
+    <div className='chatbox-log'>
+      <div className={`avatar ${message.user === 'gpt' && 'chatgpt'}`}>
+                  
+      </div>
+            <div className='message'>
+              Hello world
+          </div>
+          </div>
+  )
+}
 export default App;

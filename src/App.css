@@ -96,6 +96,10 @@
   padding-left: 40px;
   padding-right: 40px;
 }
+.gptmessage{
+  padding-left: 40px;
+  padding-right: 40px;
+}
 
 .App-header {
   background-color: #282c34;
