@@ -20,10 +20,10 @@
   }
 }
 .sidemenu{
-  width:260px;
+  width:240px;
   color:white;
   padding : 10px;
-  background-color: #202123;
+  background-color: black;
 }
 
 .side-menu-button{
@@ -35,10 +35,13 @@
 }
 .chat-input-holder{
   padding:12px;
-
+  position :absolute;
+  bottom:0;
+  left:0;
+  right:0;
 }
 .chat-input-area{
-  width:100%;
+  width:70%;
   border: none;
   border-radius: 10px;
   padding: 12px;
@@ -56,7 +59,44 @@
 .chatbox{
   flex:1;
   background-color: #343541;
+  position :relative;
 }
+
+.chatbox-log{
+  color: white;
+  padding:24px;
+  text-align: left;
+  display :flex;
+}
+.chat-message{
+  padding :12px;
+  display:flex;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+.gpt-message{
+  padding :12px;
+  display:flex;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+.avatar{
+  border-radius:50%;
+  background-color: white;
+  width: 40px;
+  height: 40px;
+}
+.gptavatar{
+  border-radius:50%;
+  background-color: green;
+  width: 40px;
+  height: 40px;
+}
+.message{
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
